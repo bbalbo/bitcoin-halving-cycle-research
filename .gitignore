@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Figuras: solo se versiona figures/modelo_avanzado_latest.png
+/*.png
+figures/bitcoin_modelo_avanzado_*.png
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
