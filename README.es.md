@@ -41,10 +41,10 @@ El modelo se entrena con los ciclos 2012 + 2016 y predice el **ciclo 2020 comple
 | Recta φ(t) = t | 0.3368 | — | — | — |
 | Ciclo 2016 reescalado | 0.3114 | — | — | — |
 
-## Hallazgos empíricos principales (a julio 2026, día d+808 del ciclo 2024)
+## Hallazgos empíricos principales (a septiembre 2026, día d+880 del ciclo 2024)
 
 - Los ciclos 2012–2020 colapsan razonablemente bien en una sola forma normalizada.
-- Amplitudes estimadas: **A(n) = 4.64, 3.00, 1.93, 0.44**. El patrón de decaimiento histórico (ajustes power-law / exponencial sobre los tres primeros ciclos) predecía A(4) ≈ 1.25–1.69; los datos observados dan **0.44** — el ciclo 2024 es mucho más débil de lo que el patrón implicaba, lo que tensiona la hipótesis de universalidad que el modelo fue diseñado para testear.
+- Amplitudes estimadas: **A(n) = 4.69, 3.04, 1.96, 0.42**. El patrón de decaimiento histórico (ajustes power-law / exponencial sobre los tres primeros ciclos) predecía A(4) ≈ 1.27–1.72; los datos observados dan **0.42** — el ciclo 2024 es mucho más débil de lo que el patrón implicaba, lo que tensiona la hipótesis de universalidad que el modelo fue diseñado para testear.
 - Bajo el escenario exponencial, el "área" del ciclo A(n)·L(n) cae por debajo del 1% de su valor inicial alrededor del ciclo ~13; bajo el escenario power-law decae lento y nunca llega a cero. Los datos no permiten distinguir entre ambos.
 
 ## Cómo correrlo
@@ -55,6 +55,8 @@ python modelo_avanzado.py
 ```
 
 El script descarga los datos, ajusta el modelo, imprime un reporte completo en consola y guarda la figura de cuatro paneles en `figures/`. `base.py` contiene el baseline simple por promedio histórico contra el que se compara el modelo.
+
+La figura de este README se actualiza automáticamente cada semana mediante un workflow de GitHub Actions (`.github/workflows/refresh-model.yml`) que re-corre el modelo con datos frescos y commitea la figura actualizada `figures/modelo_avanzado_latest.png` y `figures/ultimo_reporte.txt` (el reporte completo de consola).
 
 ## Limitaciones
 
