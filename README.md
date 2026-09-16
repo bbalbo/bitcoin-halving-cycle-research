@@ -41,10 +41,10 @@ The model is trained on cycles 2012 + 2016 and predicts the **full 2020 cycle**.
 | Straight line φ(t) = t | 0.3368 | — | — | — |
 | Rescaled 2016 cycle | 0.3114 | — | — | — |
 
-## Key empirical findings (as of July 2026, day d+808 of the 2024 cycle)
+## Key empirical findings (as of September 2026, day d+880 of the 2024 cycle)
 
 - Cycles 2012–2020 collapse reasonably well onto a single normalized shape.
-- Estimated amplitudes: **A(n) = 4.64, 3.00, 1.93, 0.44**. The historical decay pattern (power-law / exponential fits on the first three cycles) predicted A(4) ≈ 1.25–1.69; the observed data give **0.44** — the 2024 cycle is far weaker than the pattern implied, which strains the universality hypothesis it was designed to test.
+- Estimated amplitudes: **A(n) = 4.69, 3.04, 1.96, 0.42**. The historical decay pattern (power-law / exponential fits on the first three cycles) predicted A(4) ≈ 1.27–1.72; the observed data give **0.42** — the 2024 cycle is far weaker than the pattern implied, which strains the universality hypothesis it was designed to test.
 - Under the exponential scenario, the cycle "area" A(n)·L(n) falls below 1% of its initial value around cycle ~13; under the power-law scenario it decays slowly and never reaches zero. The data cannot distinguish between the two.
 
 ## Running it
@@ -55,6 +55,8 @@ python modelo_avanzado.py
 ```
 
 The script downloads the data, fits the model, prints a full console report and writes the four-panel figure to `figures/`. `base.py` contains the simple historical-average baseline the model is compared against.
+
+The figure in this README is refreshed automatically every week by a GitHub Actions workflow (`.github/workflows/refresh-model.yml`) that re-runs the model on fresh data and commits the updated `figures/modelo_avanzado_latest.png` and `figures/ultimo_reporte.txt` (the full console report).
 
 ## Limitations
 
