@@ -1,10 +1,10 @@
 name: Refresh model figure
 
 # Re-corre el modelo (modelo_avanzado.py) con datos frescos de BTC
-# (CoinMetrics + Yahoo Finance) y actualiza figures/modelo_avanzado_latest.png.
-# Los runners de GitHub tienen internet, así que la descarga y el fit corren
-# en la nube. Se puede disparar a mano (workflow_dispatch) o esperar al
-# schedule semanal.
+# (CoinMetrics + Yahoo Finance), actualiza figures/modelo_avanzado_latest.png
+# y guarda el reporte de consola en figures/ultimo_reporte.txt.
+# Los runners de GitHub tienen internet; se puede disparar a mano
+# (workflow_dispatch) o esperar al schedule semanal.
 
 on:
   schedule:
@@ -31,17 +31,17 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
 
-      - name: Regenerar figura del modelo
-        run: python modelo_avanzado.py
+      - name: Regenerar figura y guardar reporte
+        run: python modelo_avanzado.py | tee figures/ultimo_reporte.txt
 
       - name: Commitear si hay cambios
         run: |
           git config user.name "Bernard Balbontín"
           git config user.email "107295900+bbalbo@users.noreply.github.com"
-          git add figures/modelo_avanzado_latest.png
+          git add figures/modelo_avanzado_latest.png figures/ultimo_reporte.txt
           if git diff --cached --quiet; then
-            echo "Sin cambios en la figura."
+            echo "Sin cambios."
           else
-            git commit -m "data: refresh figura del modelo $(date -u +%Y-%m-%d)"
+            git commit -m "data: refresh figura y reporte del modelo $(date -u +%Y-%m-%d)"
             git push
           fi
