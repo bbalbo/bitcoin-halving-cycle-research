@@ -5,10 +5,10 @@ Descargando datos 2014-hoy (Yahoo Finance)...
 L(n) [días]: [1319, 1402, 1439, 1450]
 L_inf teórico: 1458.3 días
 L(n): [1319, 1402, 1439, 1450]
-Hoy: d+880  t_hoy=0.6069
+Hoy: d+885  t_hoy=0.6103
 
 Ajustando φ y A(n) por mínimos cuadrados alternados...
-A(n) estimados (ALS): [np.float64(4.6942), np.float64(3.036), np.float64(1.9606), np.float64(0.4224)]
+A(n) estimados (ALS): [np.float64(4.6934), np.float64(3.0356), np.float64(1.9601), np.float64(0.4223)]
 
 Validación out-of-sample: train={1,2} → predice ciclo 3 completo...
   RMSE forma — modelo φ̂        : 0.2447  (r=0.6805)
@@ -16,9 +16,9 @@ Validación out-of-sample: train={1,2} → predice ciclo 3 completo...
   RMSE forma — ciclo 2016 crudo: 0.3114
 
 Decaimiento A(n) (train n=1,2,3) — escenarios:
-  Power law   → A(4): 1.7158
-  Exponencial → A(4): 1.2680
-  A(4) estimado de los datos observados (ALS): 0.4224
+  Power law   → A(4): 1.7154
+  Exponencial → A(4): 1.2677
+  A(4) estimado de los datos observados (ALS): 0.4223
 
 Bootstrap por bloques (N=1000)...
 
@@ -27,17 +27,17 @@ Bootstrap por bloques (N=1000)...
   Estimación: bins + spline GCV + mínimos cuadrados alternados
 ================================================================
 
-  Hoy               : d+880 (2026-09-16)
-  Precio actual     : $    78,163
+  Hoy               : d+885 (2026-09-21)
+  Precio actual     : $    84,653
   Precio en el pico : $   124,753
-  Caída desde pico  :   -37.3%
+  Caída desde pico  :   -32.1%
 
   ── COMPARACIÓN DE MODELOS ──
   Modelo                            Día  Fecha             Precio    Caída
   --------------------------------------------------------------------
-  Simple (promedio histórico)    d+1008  2027-01-22    $   25,652   -67.2%
-  Avanzado (A4=0.42)              d+956  2026-12-01    $   77,286    -1.1%
-  Banda 80% del fondo (bootstrap): $73,474 – $78,163
+  Simple (promedio histórico)    d+1008  2027-01-22    $   25,652   -69.7%
+  Avanzado (A4=0.42)              d+956  2026-12-01    $   83,389    -1.5%
+  Banda 80% del fondo (bootstrap): $79,340 – $84,653
 
   ── VALIDACIÓN (out-of-sample ciclo 3, amplitud ajustada) ──
   Modelo φ̂          : RMSE=0.2447  MAE=0.1829  R²=0.4208  r=0.6805
@@ -45,11 +45,11 @@ Bootstrap por bloques (N=1000)...
   RMSE ciclo 2016   : 0.3114
 
   ── HIPÓTESIS ASINTÓTICA (extrapolación con 3 puntos) ──
-  A(n) estimados  : [np.float64(4.694), np.float64(3.036), np.float64(1.961), np.float64(0.422)]
-  A(4) escenarios : pow=1.7158, exp=1.2680  |  datos=0.4224
+  A(n) estimados  : [np.float64(4.693), np.float64(3.036), np.float64(1.96), np.float64(0.422)]
+  A(4) escenarios : pow=1.7154, exp=1.2677  |  datos=0.4223
   L(n): [1319, 1402, 1439, 1450]
-  Área A(n)·L(n): [np.float64(6192.0), np.float64(4257.0), np.float64(2821.0), np.float64(613.0)]
+  Área A(n)·L(n): [np.float64(6191.0), np.float64(4256.0), np.float64(2821.0), np.float64(612.0)]
   Escenario exp: área cae al 1% en ciclo ~12.9
   Escenario pow: decae lento, nunca llega a 0
 
-Gráfico guardado: figures/bitcoin_modelo_avanzado_20260916_0402.png (+ figures/modelo_avanzado_latest.png)
+Gráfico guardado: figures/bitcoin_modelo_avanzado_20260921_1118.png (+ figures/modelo_avanzado_latest.png)
